@@ -26,10 +26,10 @@ else {
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12">
-                <h1><?php esc_html_e('Blog','earna' ); ?></h1>
+                <h1><?php esc_html_e('Search Results For : ','earna' ); echo get_search_query(); ?></h1>
                 <ul class="breadcrumb">
                     <li><a href="<?php echo esc_url(home_url('/')); ?>"><i class="fas fa-home"></i> <?php esc_html_e( 'Home', 'earna' )?></a></li>
-                    <li class="active"><?php esc_html_e( 'Blog', 'earna' )?></li>
+                    <li class="active"><?php esc_html_e( 'Search Results', 'earna' )?></li>
                 </ul>
             </div>
         </div>
@@ -60,9 +60,24 @@ else {
 
                                 get_template_part( 'template-parts/content', 'single' );
 
-                        endwhile; 
-                        endif; 
-                    ?>
+                        endwhile;  else : ?>
+    <div class="search-custom side-bar" >
+    <h2><?php esc_html_e( 'Nothing Found', 'earna' ) ;?></h2>
+    <p><?php
+            // If no content, include the "No posts found" template.
+            esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'earna' ) ;?></p>
+            <div class="sidebar-item search">
+    <div class="sidebar-info">
+        <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+            <input type='search' name="s" placeholder="<?php esc_attr_e( 'Search Here...', 'earna' )?>" class="form-control search-fix" id="search-box" value="<?php the_search_query(); ?>" >
+            <button class="button-fix" type="submit"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+</div>
+            </div>
+
+    <?php endif; 
+    ?>
                         
                     </div>
                     

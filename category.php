@@ -26,10 +26,10 @@ else {
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12">
-                <h1><?php esc_html_e('Blog','earna' ); ?></h1>
+                <h1><?php esc_html_e('Category Archives: ', 'earna' ); echo single_cat_title( '', false ); ?></h1>
                 <ul class="breadcrumb">
                     <li><a href="<?php echo esc_url(home_url('/')); ?>"><i class="fas fa-home"></i> <?php esc_html_e( 'Home', 'earna' )?></a></li>
-                    <li class="active"><?php esc_html_e( 'Blog', 'earna' )?></li>
+                    <li class="active"><?php esc_html_e( 'Category Archives', 'earna' )?></li>
                 </ul>
             </div>
         </div>

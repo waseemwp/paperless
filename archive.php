@@ -26,10 +26,37 @@ else {
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12">
-                <h1><?php esc_html_e('Blog','earna' ); ?></h1>
+                <h1><?php
+                        if ( is_day() ) :
+                            esc_html_e( 'Daily Archives: ', 'earna' );
+
+                        elseif ( is_month() ) :
+                            esc_html_e( 'Monthly Archives: ', 'earna' );
+
+                        
+                        elseif ( is_year() ) :
+                            esc_html_e( 'Yearly Archives: ', 'earna' );
+
+                        endif;
+
+                        if ( is_day() ) :
+                            echo esc_html( get_the_date('F j, Y') );
+
+                        elseif ( is_month() ) :
+                            echo esc_html( get_the_date('F Y') );
+
+                        elseif ( is_year() ) :
+                            echo esc_html( get_the_date('Y') );
+ 
+                        else :
+                            esc_html_e( 'Archives', 'earna' );
+
+                        endif;
+
+                    ?></h1>
                 <ul class="breadcrumb">
                     <li><a href="<?php echo esc_url(home_url('/')); ?>"><i class="fas fa-home"></i> <?php esc_html_e( 'Home', 'earna' )?></a></li>
-                    <li class="active"><?php esc_html_e( 'Blog', 'earna' )?></li>
+                    <li class="active"><?php esc_html_e( 'Archives', 'earna' )?></li>
                 </ul>
             </div>
         </div>
